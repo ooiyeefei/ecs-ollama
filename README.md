@@ -1,3 +1,11 @@
+# Quick deploy to your AWS account
+- Clone the repo
+- Authenticate to your AWS Account
+- Specify region. e.g. `export AWS_DEFAULT_REGION=us-east-1`
+- `cdk synth`
+- `cdk deploy`
+
+
 # Welcome to your CDK TypeScript project
 
 This is a blank project for CDK development with TypeScript.
