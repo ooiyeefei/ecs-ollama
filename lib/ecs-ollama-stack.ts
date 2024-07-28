@@ -20,7 +20,7 @@ export class EcsOllamaStack extends cdk.Stack {
       vpc: vpc
     })
 
-    cluster.addCapacity('MyGroupCapacity', {
+    const ecs_asg = cluster.addCapacity('MyGroupCapacity', {
       instanceType: new ec2.InstanceType("g4dn.xlarge"),
       spotInstanceDraining: true,
       allowAllOutbound: true,
@@ -29,6 +29,8 @@ export class EcsOllamaStack extends cdk.Stack {
       }),
     });
 
+    // ecs_asg.addUserData('#!/bin/bash\ncurl -fsSL https://ollama.com/install.sh | sh\nsudo systemctl status ollama\nollama pull llama3');
+    
     // Create Task Definition
     const taskDefinition = new ecs.Ec2TaskDefinition(this, 'TaskDef');
 
